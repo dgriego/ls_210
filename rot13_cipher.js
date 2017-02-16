@@ -1,4 +1,12 @@
-var BASE_CHARS = {A: 65, Z: 90, a: 97, z: 122, N: 78, n:110};
+var BASE_CHARS = {
+  A: 'A'.charCodeAt(),
+  a: 'a'.charCodeAt(),
+  Z: 'Z'.charCodeAt(),
+  z: 'z'.charCodeAt(),
+  N: 'N'.charCodeAt(),
+  n: 'n'.charCodeAt()
+};
+
 var ROT_13 = 13;
 
 function rot13(string) {
