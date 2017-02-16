@@ -9,7 +9,7 @@ function rot13(string) {
     charCode = string.charCodeAt(i);
 
     if (isLetter(charCode)) {
-      if (ntoz(charCode)) {
+      if (nToZ(charCode)) {
         message += String.fromCharCode(charCode - ROT_13);
       } else {
         message += String.fromCharCode(charCode + ROT_13);
@@ -22,7 +22,7 @@ function rot13(string) {
   return message;
 }
 
-function ntoz(char) {
+function nToZ(char) {
   return (char >= BASE_CHARS.n && char <= BASE_CHARS.z) ||
          (char >= BASE_CHARS.N && char <= BASE_CHARS.Z);
 }
