@@ -24,7 +24,7 @@ function indexOf(firstString, secondString) {
             match = i;
           }
         }
-        
+
         if (match > 0) {
           break;
         }
