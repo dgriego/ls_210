@@ -1,0 +1,26 @@
+throw new Error(reason);
+
+throw {
+  name: exceptionName,
+  message: reason
+}
+
+try {
+  // something
+} catch (e) {
+  // do stuff with e
+}
+
+Try Statement
+=========================
+'Error'
+'EvalError'
+'RangeError'
+'SyntaxError'
+'TypeError'
+'URIError'
+
+With statement
+=========================
+Intended as a convenient short-hand
+Don't use it

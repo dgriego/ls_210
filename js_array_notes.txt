@@ -1,0 +1,57 @@
+Arrays
+===================
+- Array inherits from Object.
+- Indexes are converted to string and used as names for
+  retrieving values.
+- Very efficient for sparse arrays.
+- Not very efficient in most other cases.
+- One advatage: No need to provide a length or type
+  when creating an array.
+
+length
+===================
+- Arrays, unlike objects, have a special length property.
+- It is always 1 larger than the highest integer subscript.
+- It allows use of the traditional for statement
+- Do not use for in with arrays because it does not
+  gurantee the order in which the elements get pulled in
+
+Array Literals
+===================
+- An array literal uses []
+- It can contain any number of expressions,
+  separated by commas
+  myList = ['oats', 'peas', 'beans'];
+- New items can be appended
+  myList[myList.length] = 'barley';
+- The dot notation should not be used with arrays.
+
+Sort
+====================
+- var n = [4, 8, 15, 16, 23, 42];
+n.sort();
+// n is [15, 16, 23, 4, 42, 8]
+
+Deleting Elements
+====================
+delete array[number]
+array.splice(0, 1);
+
+using delete leaves a hole in the array
+myArray = ['a', 'b', 'c', 'd'];
+
+delete myArray[1];
+
+// ['a', undefined, 'c', 'd']
+
+myArray.splice(1, 1);
+
+// ['a', 'c', 'd'];
+use splice over delete for arrays
+
+Arrays v Objects
+- Use objects when the names are arbitrary strings.
+- Use arrays when the names are sequential integers.
+- Don't get confused by the term Associative Array
+
+

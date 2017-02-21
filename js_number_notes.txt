@@ -1,0 +1,49 @@
+Javascript notes
+
+only one type of number: Double
+no Integer
+
+Doubles are 64-bit what point
+
+IEEE-754 (aka "Double")
+
+-- today memory is very big so the variables get lost in the noise
+
+==================================
+** Associative Law does not hold
+(a + b) + c === a + (b + c)
+- produces false for some values of a, b, c.
+
+- Integers under 9007199254740992 (9 quadrillion) are ok.
+
+===================================
+** Decimal fractions are approximate
+a = 0.1;
+b = 0.2;
+c = 0.3;
+
+(a + b) + c === a + (b + c)
+returns false;
+
+Most reported bug the Mozilla database
+-- Turn them into integers then do the work
+
+You can add methods to an object using prototype. example:
+
+Number.prototype.trunc = function() {
+ return true;
+}
+
+Don't extend the native javascript objects
+Good reason to extend ajax libraries using prototype
+
+Numbers are first class objects
+
+==================================
+NaN is a number without any value
+
+NaN === NaN is false
+NaN !== NaN is true
+LOL
+
+

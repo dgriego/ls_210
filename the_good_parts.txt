@@ -1,0 +1,155 @@
+Intro
+=================
+"Javascript is not a language I know."
+
+"The browser programming experience is awful"
+
+"It's not fast enough"
+
+"the language is just a pile of mistakes"
+
+- the DOM is what makes programming in the browser an awful experience
+- Ajax has a lot of nice parts that fix this experience
+
+
+Influences
+==================
+- Self
+  - prototypal inheritance
+  - dynamic objects
+
+- Scheme
+  - lambda
+  - loose typing
+
+- Java
+  - syntax
+  - conventions
+
+- Perl
+  - regular expressions
+
+
+Bad Parts
+==================
+- Global Variables:
+  compilation units all get tossed in a common global namespace
+  where all the variable names can collide.  This fundamentally
+  enables security attacks due to the global namespace
+- + adds and conatenates
+- Semicolon insertion
+- typeof
+- with and eval
+- phony arrays
+  arrays are essentially hash tables
+- == and !=
+- false, null, undefined, and NaN
+
+
+Bad Heritage
+==================
+- Blockless statements
+  if (foo)
+    bar ();
+- Expression
+  foo;
+- Floating point arithmetic
+  0.1 + 0.2 !== 0.3
+- ++ and -- (doug doesn't ever use these)
+  implicated in buffer overruns and security hazards
+- switch
+  fall through badness
+
+
+Good Parts
+==================
+- Lambda
+- Dynamic Objects
+- Loose Typing
+- Object Literals
+
+
+Inheritance
+==================
+- Iheritance is object-oreiented code reuse
+- Two Schools:
+  - Classical
+  - Prototypal
+
+Prototypal Inheritance
+==================
+- Class-free
+- Objects inherit from objects
+- An object contains a link to another object:
+  Delegation. Differential Inheritance.
+      var newObject =
+            Object.create(oldObject);
+
+
+A Module Pattern
+==================
+var singleton = function () {
+  var privateVariable;
+  function privateFunction(x) {
+     ...privateVariable...
+  }
+
+  return {
+    firstMethod: function (a, b) {
+      ...privateVariable...
+    },
+
+    secondMethod: function (c) {
+      ...privateFunction...
+    }
+  };
+}();
+
+Power Constructors
+===================
+1. Make an object.
+  - Object
+  - new
+  - object.create
+  - call another power constructor
+
+2. Define some variables and functions.
+  - These become private members.
+3. Augment the object with privileged methods
+4. return the object
+
+
+Step One
+==================
+function myPowerConstructor(x) {
+  var that = otherMaker(x);
+  var secret = f(x);
+  that.priv = function () {
+    ... secret x that ...
+  }
+  return that;
+}
+
+This is bad:
+
+return
+{
+  ok: false
+};
+why?
+because of semi-colon insertion in compiles to this:
+return;
+{
+  ok: false;
+};
+
+"It's not ignorance does so much damage;
+it's knowin' so derned much that ain't so."
+- Josh Billings
+
+creating safe subsets can make the language better
+which in the end will replace JavaScript.
+- FBJS
+- Caja & Cajita
+- AdSafe
+- etc.

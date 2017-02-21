@@ -1,0 +1,66 @@
+String
+==========================
+- we don't know where this came from
+- Holerith after Hermal Holerith (same for boolean after bool)
+- 0 or more 16-bit Unicode characters
+    - UCS-2, not quite UTF-16
+    - No awareness of surrogate pairs
+- No separate character type
+    - Characters are represented as string with the length of 1
+- Strings are immutable
+- Similar strings are equal ( === )
+- String literals can use single or double quotes with \ escapement
+
+Multiline string literals
+==========================
+var long_line_1 = "This is a \
+long line"; // ok
+
+var long_line_2 = "This is a \
+long line"; // syntax error (space at the end)
+
+Convert a number to a string
+=========================
+- Use number method(toString)
+- Use String function
+
+Convert a string to a number
+=========================
+- Use the Number function
+- Use the + prefix operator
+- Use the parseInt function. (ensure radix is present).
+
+parseInt function
+parseInt(str, 10)
+- stops at the first non-digit character.
+- The radix (10) should always be used.
+for these reasons:
+parseInt("08") === 0 // true (assumes base8 if it sees 0)
+parseInt("08", 10) === 8 // true
+
+String length
+=========================
+- strings are objects
+- strings have a length
+
+supplant
+=========================
+var template = '<div id="{stuff}">' +
+               '<div>{item}</div></div>';
+
+var date = {
+  stuff: 'blha',
+  item: 2
+}
+
+mydiv.innerHTML = template.supplant(data);
+
+if (typeof String.prototype.supplant !== 'function') {
+  String.prototype.supplant = function (o) {
+    return this.replace(/{([^{}]*)},
+      function(a, b) {
+        var r = o[b];
+          return typeof r === 'string' ? r : a;
+      });
+  };
+}
